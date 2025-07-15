@@ -5,7 +5,7 @@ const sleep = ms => new Promise(r => setTimeout(r, ms));
 
 
 const singleRun = async () => {
-  const browser = await puppeteer.launch({ headless: false }); // set to true for headless
+  const browser = await puppeteer.launch({ headless: true }); // set to true for headless
   const page = await browser.newPage();
 
   console.log("Navigating to page…");
@@ -75,6 +75,8 @@ function writeCSVToFile(filename, arr) {
 
 const runTheTest = async () => {
   const runSize = parseInt(process.argv[2]);
+  const arg3 = process.argv[3];
+  let file = process.argv?.[4] || process?.argv[3] || 'output.csv';
   const batchSize = parseInt(process.argv[3]) || 1;
   let results = [];
   for (let i = 0; i < Math.ceil(runSize / batchSize); i++) {
@@ -86,7 +88,7 @@ const runTheTest = async () => {
     results = results.concat(resolvedBatch);
   }
   const resultsObj = {};
-  results.forEach((result, index) => {
+  results.forEach((result) => {
     if (resultsObj[result]) {
       resultsObj[result] += 1;
     } else {
@@ -96,10 +98,8 @@ const runTheTest = async () => {
   const arr = Object.keys(resultsObj).map(key => {
     return { name: key, count: resultsObj[key] };
   });
-  writeCSVToFile(process.argv[4], arr);
-  
-  // fs.writeFileSync('output.csv', csvContent, 'utf8');
-  // console.log('CSV file written successfully!');
+  writeCSVToFile(file, arr);
+
 };
 runTheTest();
 
