@@ -15,12 +15,13 @@ node testTheWheel.js 10 someFile.csv;
 node testTheWheel.js 100 10;
 
 // output aggreagation of 1000 spins running in batches of one (default) to the file: 'thousand.csv'
-node testTheWheel.js 1000 thousand.csv 
+node testTheWheel.js 1000 thousand.csv;
 ```
 
 
 ## example output
 ```
+name,count
 Kevin,50
 Vineet,3
 Thomas,1
