@@ -21,8 +21,19 @@ node testTheWheel.js 1000 thousand.csv;
 
 ## example output
 ```
-name,count
-Kevin,50
-Vineet,3
-Thomas,1
+name
+Kevin
+Kevin
+Vineet
+Kevin
+Kevin
+Kevin
+Kevin
+Vineet
+Kevin
+Kevin
+Kevin
+Kevin
+Vineet
+Thomas
 ```
