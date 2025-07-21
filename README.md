@@ -16,7 +16,12 @@ node testTheWheel.js 100 10;
 
 // output aggreagation of 1000 spins running in batches of one (default) to the file: 'thousand.csv'
 node testTheWheel.js 1000 thousand.csv;
-```
+
+// After the output you can aggregate and plot the data w/
+python aggregate.py <filename>;
+// using one of the files above -- python aggregate.py thousand.csv
+// ^ that will create a new file <filename>_counts.csv and plot the data
+
 
 
 ## example output
